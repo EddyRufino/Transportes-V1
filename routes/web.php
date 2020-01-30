@@ -4,9 +4,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('admin', function() {
-    return view('admin.dashboard');
-});
+Route::resource('datos', 'DatoController');
+// Route::get('datos', 'DatoController@index')->name('datos.index');
+// Route::get('datos', 'DatoController@create')->name('datos.create');
 
 Auth::routes();
 

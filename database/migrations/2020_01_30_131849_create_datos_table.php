@@ -18,7 +18,7 @@ class CreateDatosTable extends Migration
             $table->string('nombre', 150);
             $table->string('apellido', 150);
             $table->integer('dni');
-            $table->string('sexo', 50);
+            $table->string('sexo', 50)->nullable();
             $table->timestamps();
         });
     }

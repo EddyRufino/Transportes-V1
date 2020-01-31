@@ -7,7 +7,7 @@
 
 
             <div class="form-group">
-                <label class="lead text-secondary ">Nombre:</label>
+                <label class="lead text-secondary mover">Nombre:</label>
                 <div class="d-flex justify-content-center align-items-center">
                 <input class="form-control col-md-8 bg-light shadow-sm border-0"
                         name="nombre"
@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group">
-                <label class="lead text-secondary">Apellido:</label>
+                <label class="lead text-secondary mover">Apellido:</label>
                 <div class="d-flex justify-content-center align-items-center">
                 <input class="form-control col-md-8 bg-light shadow-sm border-0"
                         name="apellido"
@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-group">
-                <label class="lead text-secondary">DNI:</label>
+                <label class="lead text-secondary mover">DNI:</label>
                 <div class="d-flex justify-content-center align-items-center">
                 <input class="form-control col-md-8 bg-light shadow-sm border-0"
                         name="dni"

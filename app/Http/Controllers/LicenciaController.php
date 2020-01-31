@@ -2,82 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Dato;
 use App\Licencia;
+use App\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Requests\LicenciaRequest;
 
 class LicenciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $licencias = Licencia::latest()->paginate(3);
+        return view('licencias.index', compact('licencias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $categorias = Categoria::all();
+        $usuarios = Dato::all();
+        return view('licencias.create', compact('categorias', 'usuarios'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(LicenciaRequest $request)
     {
-        //
+        // $licencia = new Licencia;
+        // $licencia->num_licencia = $request->num_licencia;
+        // $licencia->clase = $request->clase;
+        // $licencia->fecha_expedicion = $request->fecha_expedicion;
+        // $licencia->fecha_revalidacion = $request->fecha_revalidacion;
+        // $licencia->restricciones = $request->restricciones;
+        // $licencia->domicilio = $request->domicilio;
+        // $licencia->sangre = $request->sangre;
+        // $licencia->num_expediente = $request->num_expediente;
+        // $licencia->nacionalidad = $request->nacionalidad;
+        // $licencia->fecha_nacimiento = $request->fecha_nacimiento;
+        // $licencia->categoria_id = $request->categoria_id;
+        // $licencia->dato_id = $request->dato_id;
+        // $licencia->save();
+
+        // return redirect()->route('licencias.index');
+
+        return $request->all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Licencia  $licencia
-     * @return \Illuminate\Http\Response
-     */
     public function show(Licencia $licencia)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Licencia  $licencia
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Licencia $licencia)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Licencia  $licencia
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Licencia $licencia)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Licencia  $licencia
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Licencia $licencia)
     {
         //

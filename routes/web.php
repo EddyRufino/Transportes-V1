@@ -5,6 +5,7 @@ Route::get('/', function () {
 });
 
 Route::resource('datos', 'DatoController');
+Route::resource('licencias', 'LicenciaController');
 // Route::get('datos', 'DatoController@index')->name('datos.index');
 // Route::get('datos', 'DatoController@create')->name('datos.create');
 

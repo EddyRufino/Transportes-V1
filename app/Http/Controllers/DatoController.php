@@ -11,22 +11,22 @@ class DatoController extends Controller
 
     public function index()
     {
-        $datos = Dato::all();
+        $datos = Dato::latest()->paginate(3);
         return view('datos.index', compact('datos'));
     }
 
     public function create()
     {
-        return view('datos.create');
+        return view('datos.create')->with('status', 'el usuario fue creado con éxito!');
     }
 
     public function store(DatosResquest $request)
     {
         // $dato = Dato::create($request->validate());
         $dato = new Dato;
-        $dato->nombre = $DatosResquest->nombre;
-        $dato->apellido = $DatosResquest->apellido;
-        $dato->dni = $DatosResquest->dni;
+        $dato->nombre = $request->nombre;
+        $dato->apellido = $request->apellido;
+        $dato->dni = $request->dni;
         $dato->save();
 
         return redirect()->route('datos.index');
@@ -49,6 +49,7 @@ class DatoController extends Controller
 
     public function destroy(Dato $dato)
     {
-        //
+        $dato->delete();
+        return back()->with('status', 'el usuario fue eliminado con éxito!');
     }
 }

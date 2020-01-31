@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a class="btn btn-secondary p-2 mb-4" href="{{ asset('datos/create') }}">Nuevo usuario</a>
+    {{-- <a class="btn btn-secondary p-2 mb-4" href="{{ asset('datos/create') }}">Nuevo usuario</a> --}}
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -40,6 +40,10 @@
         
         </tbody>
     </table>
+
+    <div class="overflow-auto mt-2">
+        {{ $datos->links() }}
+    </div>
 
 </div>
 @endsection

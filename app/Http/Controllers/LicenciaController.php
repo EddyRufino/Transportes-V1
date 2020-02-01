@@ -40,14 +40,13 @@ class LicenciaController extends Controller
         // $licencia->dato_id = $request->dato_id;
         // $licencia->save();
 
-        // return redirect()->route('licencias.index');
-
-        return $request->all();
+        Licencia::create($request->all());
+        return redirect()->route('licencias.index');        
     }
 
     public function show(Licencia $licencia)
     {
-        //
+        return view('licencias.show', compact('licencia'));
     }
 
     public function edit(Licencia $licencia)

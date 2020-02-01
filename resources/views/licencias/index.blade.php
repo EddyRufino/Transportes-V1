@@ -1,7 +1,24 @@
 @extends('admin.layout')
 
 @section('content')
-<div class="container">
+<div class="container overflow-auto">
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Listado de Licencias</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Licencias</li>
+            </ol>
+          </div><!-- /.col -->
+        </div>
+      </div>
+    </div>
+
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -24,21 +41,39 @@
                 <td>{{ $licencia->fecha_expedicion }}</td>
                 <td>{{ $licencia->fecha_revalidacion }}</td>
                 <td>{{ $licencia->domicilio }}</td>
-                <td>{{ $licencia->categoria->nombre }}</td>
                 <td>{{ $licencia->dato->nombre }}</td>
+                <td>{{ $licencia->categoria->nombre }}</td>
                 <td>
-                    {{-- <a class="" href="{{ route('licencias.show', $licencia->id) }}">Ver más</a>
-                    &nbsp;&nbsp; --}}
-                    {{-- <a href="{{ route('licencia.edit', $licencia) }}">Editar</a> --}}
-                    
-                    <form method="POST" action="{{ route('licencias.destroy', $licencia) }}"
-                            style="display: inline;">
-                            {{ csrf_field() }} {{ method_field('DELETE') }}
-                        <button class="btn btn-danger"
-                                onclick="return confirm('Estás seguro de querer eliminar este licencia?')">
-                            eliminar
-                        </button>
-                    </form>
+                    <ul style="list-style: none">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" data-toggle="dropdown" href="#">
+                            <i class="far fa-bell"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                            <span class="dropdown-header">Elige una de ellas</span>
+
+                            <div class="dropdown-divider"></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-success" href="#">Editar</a>
+
+                            <div class="dropdown-divider"></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-primary" href="{{ route('licencias.show', $licencia->id) }}"
+                                >Ver más
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <form method="POST" action="{{ route('licencias.destroy', $licencia) }}"
+                                    style="display: inline;">
+                                    {{ csrf_field() }} {{ method_field('DELETE') }}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger"
+                                        onclick="return confirm('Estás seguro de querer eliminar este licencia?')">
+                                    eliminar
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                     
                 </td>
             </tr>
             @empty

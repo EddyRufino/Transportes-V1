@@ -137,6 +137,22 @@
             </div>
 
             <div class="form-group">
+                <label class="lead text-secondary mover">Nacionalidad:</label>
+                <div class="d-flex justify-content-center align-items-center">
+                <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        name="nacionalidad"
+                        required
+                        placeholder="Ingresa la nacionalidad..."
+                        value="{{ old('nacionalidad') }}">
+                </div>
+                    @if ($errors->has('nacionalidad'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('nacionalidad') }}</strong>
+                        </span>
+                    @endif
+            </div>
+
+            <div class="form-group">
                 <label class="lead text-secondary mover">Fecha Nacimiento:</label>
                 <div class="d-flex justify-content-center align-items-center">
                 <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"

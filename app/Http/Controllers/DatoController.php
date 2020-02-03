@@ -11,7 +11,7 @@ class DatoController extends Controller
 
     public function index()
     {
-        $datos = Dato::latest()->paginate(3);
+        $datos = Dato::latest()->paginate(6);
         return view('datos.index', compact('datos'));
     }
 

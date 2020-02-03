@@ -50,9 +50,9 @@
                             <i class="far fa-bell"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                            <span class="dropdown-header">Elige una de ellas</span>
+                            {{-- <span class="dropdown-header">Elige una de ellas</span>
 
-                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div> --}}
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a class="btn btn-success" href="#">Editar</a>
 

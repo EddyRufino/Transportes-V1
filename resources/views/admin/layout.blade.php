@@ -168,4 +168,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $('.select2').select2({
       tags: true
     });
+
+  // Para vehículo
+  $('#datepickerv1').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickerv2').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickerv3').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
 </script>

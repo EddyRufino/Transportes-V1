@@ -182,4 +182,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     autoclose: true,
     format: 'yyyy-mm-dd'
   });
+
+  // Para certificados
+  $('#datepickerc1').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickerc2').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+
 </script>

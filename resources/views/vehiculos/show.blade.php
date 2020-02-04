@@ -70,7 +70,7 @@
         <div class="panel-body">
             <div class="container">
             <div class="row">
-                <div class="column align-items-start col-md-4">
+                <div class="column align-items-start col-md-5">
                     <div class="col">
                         <p class="lead">
                             <label class="text-secondary">Categoría:</label>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
 
-                <div class="column align-items-start col-md-4">
+                <div class="column align-items-start col-md-5">
                     <div class="col">
                         <p class="lead">
                             <label class="text-secondary">Año Modelo:</label>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
 
-                <div class="column align-items-start col-md-4">
+                <div class="column align-items-start col-md-2">
                     <div class="col">
                         <p class="lead">
                             <label class="text-secondary">Cilindros:</label>

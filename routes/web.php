@@ -8,6 +8,7 @@ Route::resource('datos', 'DatoController');
 Route::resource('licencias', 'LicenciaController');
 Route::resource('vehiculos', 'VehiculoController');
 Route::resource('certificados', 'CertificadoController');
+Route::resource('soats', 'SoatController');
 
 Auth::routes();
 

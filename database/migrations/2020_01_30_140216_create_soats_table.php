@@ -24,7 +24,7 @@ class CreateSoatsTable extends Migration
             $table->date('fecha_hoy');
             $table->string('hora_emision', 50);
             $table->string('monto_prima', 80);
-            $table->string('descripcion', 200);
+            $table->string('descripcion', 200)->nullable();
             $table->integer('telefono');
             $table->unsignedInteger('vehiculo_id');
             $table->unsignedInteger('dato_id');

@@ -193,4 +193,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
     format: 'yyyy-mm-dd'
   });
 
+  // Para soats
+  $('#datepickers1').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickers2').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickers3').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickers4').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickers5').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+
+
+
 </script>

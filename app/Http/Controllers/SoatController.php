@@ -10,6 +10,11 @@ use App\Http\Requests\SoatsRequest;
 
 class SoatController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -52,5 +57,15 @@ class SoatController extends Controller
     public function destroy(soat $soat)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        // $select = $request->get('select');
+        $search = $request->get('searchsoat');
+        // $juzgados = Juzgado::where('condition', '=', '1')->select('id', 'nombreJuzgado')->get();
+        $soats = soat::where('num_poliza', 'LIKE', '%'.$search.'%')
+                    ->paginate(6);
+        return view('soats.index', compact('soats'));
     }
 }

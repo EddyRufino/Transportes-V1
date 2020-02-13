@@ -10,6 +10,11 @@ use App\Http\Requests\LicenciaRequest;
 
 class LicenciaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $licencias = Licencia::latest()->paginate(3);
@@ -61,6 +66,16 @@ class LicenciaController extends Controller
 
     public function destroy(Licencia $licencia)
     {
-        //
+        //  
+    }
+
+    public function search(Request $request)
+    {
+        // $select = $request->get('select');
+        $search = $request->get('searchlicencia');
+        // $juzgados = Juzgado::where('condition', '=', '1')->select('id', 'nombreJuzgado')->get();
+        $licencias = Licencia::where('num_licencia', 'LIKE', '%'.$search.'%')
+                    ->paginate(6);
+        return view('licencias.index', compact('licencias'));
     }
 }

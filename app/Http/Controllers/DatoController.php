@@ -8,6 +8,10 @@ use App\Http\Requests\DatosResquest;
 
 class DatoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -51,5 +55,15 @@ class DatoController extends Controller
     {
         $dato->delete();
         return back()->with('status', 'el usuario fue eliminado con éxito!');
+    }
+
+    public function search(Request $request)
+    {
+        // $select = $request->get('select');
+        $search = $request->get('search');
+        // $juzgados = Juzgado::where('condition', '=', '1')->select('id', 'nombreJuzgado')->get();
+        $datos = Dato::where('nombre', 'LIKE', '%'.$search.'%')
+                    ->paginate(6);
+        return view('datos.index', compact('datos'));
     }
 }

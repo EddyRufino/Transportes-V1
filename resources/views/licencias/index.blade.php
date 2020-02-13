@@ -6,10 +6,22 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Listado de Licencias</h1>
+          <div class="col-sm-4">
+            <h1 class="m-0 text-secondary">Listado de Licencias</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-4">
+            <form class=" ml-3"  method="GET" action="{{ route('licencias.search') }}">
+                <div class="input-group input-group-sm">
+                  <input required name="searchlicencia" class="form-control form-control-navbar" type="search" placeholder="Buscar por Nª Licencia" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+          </div>
+          <div class="col-sm-4 mt-1">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Licencias</li>
@@ -53,8 +65,8 @@
                             {{-- <span class="dropdown-header">Elige una de ellas</span>
 
                             <div class="dropdown-divider"></div> --}}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a class="btn btn-success" href="#">Editar</a>
+                            {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-success" href="#">Editar</a> --}}
 
                             <div class="dropdown-divider"></div>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

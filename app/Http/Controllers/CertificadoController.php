@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class CertificadoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -46,5 +50,15 @@ class CertificadoController extends Controller
     {
         $certificado->delete();
         return back()->with('status', 'el usuario fue eliminado con éxito!');
+    }
+
+    public function search(Request $request)
+    {
+        // $select = $request->get('select');
+        $search = $request->get('searchcertificado');
+        // $juzgados = Juzgado::where('condition', '=', '1')->select('id', 'nombreJuzgado')->get();
+        $certificados = certificado::where('num_certificado', 'LIKE', '%'.$search.'%')
+                    ->paginate(6);
+        return view('certificados.index', compact('certificados'));
     }
 }

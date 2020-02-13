@@ -9,6 +9,10 @@ use App\Http\Requests\VehiculoRequest;
 
 class VehiculoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -48,5 +52,15 @@ class VehiculoController extends Controller
     {
         $vehiculo->delete();
         return back()->with('status', 'el vehículo fue eliminado con éxito!');
+    }
+
+    public function search(Request $request)
+    {
+        // $select = $request->get('select');
+        $search = $request->get('searchvehiculo');
+        // $juzgados = Juzgado::where('condition', '=', '1')->select('id', 'nombreJuzgado')->get();
+        $vehiculos = vehiculo::where('placa', 'LIKE', '%'.$search.'%')
+                    ->paginate(6);
+        return view('vehiculos.index', compact('vehiculos'));
     }
 }

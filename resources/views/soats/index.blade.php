@@ -5,10 +5,22 @@
         <div class="content-header">
             <div class="container-fluid">
               <div class="row mb-2">
-                <div class="col-sm-6">
-                  <h1 class="m-0 text-dark">Listado de soats</h1>
+                <div class="col-sm-4">
+                  <h1 class="m-0 text-secondary">Listado de soats</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
+                <div class="col-sm-4">
+                    <form class=" ml-3" method="GET" action="{{ route('soats.search') }}">
+                        <div class="input-group input-group-sm">
+                          <input required name="searchsoat" class="form-control form-control-navbar" type="search" placeholder="Buscar Nª poliza" aria-label="Search">
+                          <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                              <i class="fas fa-search"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                  </div>
+                <div class="col-sm-4 mt-1">
                   <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Soats</li>
@@ -29,6 +41,7 @@
                 <th scope="col">Fin Certi.</th>
                 <th scope="col">Usuario</th>
                 <th scope="col">Vehículo</th>
+                <th scope="col">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -40,6 +53,7 @@
                     <td>{{ $soat->inicio_poliza }}</td>
                     <td>{{ $soat->fin_poliza }}</td>
                     <td>{{ $soat->inicio_certificado }}</td>
+                    <td>{{ $soat->fin_certificado }}</td>
                     <td>{{ $soat->dato->nombre }}</td>
                     <td>{{ $soat->vehiculo->marca }}</td>
                     <td>
@@ -52,7 +66,7 @@
                                 {{-- <span class="dropdown-header">Elige una de ellas</span>
     
                                 <div class="dropdown-divider"></div> --}}
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
                                 {{-- <a class="btn btn-success" href="#">Editar</a> --}}
     
                                 <div class="dropdown-divider"></div>

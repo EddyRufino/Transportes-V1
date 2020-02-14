@@ -51,7 +51,7 @@ class VehiculoController extends Controller
     public function destroy(vehiculo $vehiculo)
     {
         $vehiculo->delete();
-        return back()->with('status', 'el vehículo fue eliminado con éxito!');
+        return back()->with('status', 'El vehículo fue eliminado con éxito!');
     }
 
     public function search(Request $request)

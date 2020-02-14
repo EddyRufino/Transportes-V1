@@ -21,7 +21,7 @@ class DatoController extends Controller
 
     public function create()
     {
-        return view('datos.create')->with('status', 'el usuario fue creado con éxito!');
+        return view('datos.create')->with('status', 'El usuario fue creado con éxito!');
     }
 
     public function store(DatosResquest $request)
@@ -54,7 +54,7 @@ class DatoController extends Controller
     public function destroy(Dato $dato)
     {
         $dato->delete();
-        return back()->with('status', 'el usuario fue eliminado con éxito!');
+        return back()->with('status', 'El usuario fue eliminado con éxito!');
     }
 
     public function search(Request $request)

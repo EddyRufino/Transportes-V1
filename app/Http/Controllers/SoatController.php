@@ -41,7 +41,7 @@ class SoatController extends Controller
 
     public function show(soat $soat)
     {
-        //
+        return view('soats.show', compact('soat'));
     }
 
     public function edit(soat $soat)
@@ -56,7 +56,8 @@ class SoatController extends Controller
 
     public function destroy(soat $soat)
     {
-        //
+        $soat->delete();
+        return back()->with('status', 'El soat fue eliminado con éxito!');
     }
 
     public function search(Request $request)

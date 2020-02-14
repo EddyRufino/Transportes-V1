@@ -49,7 +49,7 @@ class CertificadoController extends Controller
     public function destroy(certificado $certificado)
     {
         $certificado->delete();
-        return back()->with('status', 'el usuario fue eliminado con éxito!');
+        return back()->with('status', 'el certificado fue eliminado con éxito!');
     }
 
     public function search(Request $request)

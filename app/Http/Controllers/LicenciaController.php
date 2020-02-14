@@ -66,7 +66,8 @@ class LicenciaController extends Controller
 
     public function destroy(Licencia $licencia)
     {
-        //  
+        $licencia->delete();
+        return back()->with('status', 'la licencia fue eliminada con éxito!');
     }
 
     public function search(Request $request)

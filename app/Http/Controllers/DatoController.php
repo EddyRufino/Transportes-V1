@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Dato;
+use App\Paradero;
 use Illuminate\Http\Request;
 use App\Http\Requests\DatosResquest;
 
@@ -11,6 +12,7 @@ class DatoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('roles:admin,recep');
     }
 
     public function index()
@@ -21,7 +23,8 @@ class DatoController extends Controller
 
     public function create()
     {
-        return view('datos.create')->with('status', 'El usuario fue creado con éxito!');
+        $paraderos = Paradero::all();
+        return view('datos.create', compact('paraderos'))->with('status', 'El usuario fue creado con éxito!');
     }
 
     public function store(DatosResquest $request)
@@ -31,6 +34,14 @@ class DatoController extends Controller
         $dato->nombre = $request->nombre;
         $dato->apellido = $request->apellido;
         $dato->dni = $request->dni;
+
+        if ($request->hasFile('avatar'))
+        {
+            $dato->avatar = $request->file('avatar')->store('public');
+        }
+
+        $dato->paradero_id = $request->paradero_id;
+
         $dato->save();
 
         return redirect()->route('datos.index');
@@ -43,12 +54,27 @@ class DatoController extends Controller
 
     public function edit(Dato $dato)
     {
-        //
+        $paraderos = Paradero::all();
+        return view('datos.edit', compact('dato', 'paraderos'));
     }
 
-    public function update(Request $request, Dato $dato)
+    public function update(Request $request, $id)
     {
-        //
+        $dato = Dato::findOrfail($id);
+        $dato->nombre = $request->nombre;
+        $dato->apellido = $request->apellido;
+        $dato->dni = $request->dni;
+
+        if ($request->hasFile('avatar'))
+        {
+            $dato->avatar = $request->file('avatar')->store('public');
+        }
+
+        $dato->paradero_id = $request->paradero_id;
+
+        $dato->update();
+
+        return redirect()->route('datos.index');
     }
 
     public function destroy(Dato $dato)
@@ -62,8 +88,23 @@ class DatoController extends Controller
         // $select = $request->get('select');
         $search = $request->get('search');
         // $juzgados = Juzgado::where('condition', '=', '1')->select('id', 'nombreJuzgado')->get();
-        $datos = Dato::where('nombre', 'LIKE', '%'.$search.'%')
+        $datos = Dato::where('dni', 'LIKE', '%'.$search.'%')
                     ->paginate(6);
         return view('datos.index', compact('datos'));
     }
+
+    // public function autorizacion()
+    // {
+    //     $datos = Dato::latest()->paginate(6);
+    //     return view('autorizacion.index', compact('datos'));
+    // }
+
+    // public function searchAutorizacion(Request $request)
+    // {
+        
+    //     $search = $request->get('searchAutorizacion');
+    //     $datos = Dato::where('dni', 'LIKE', '%'.$search.'%')
+    //                 ->paginate(6);
+    //     return view('autorizacion.index', compact('datos'));
+    // }
 }

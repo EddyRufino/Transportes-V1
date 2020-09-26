@@ -13,15 +13,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Transportes</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/adminlte/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="/css/mio.css">
+  <link rel="stylesheet" href="{{ asset('css/mio.css') }}">
   {{-- <link rel="stylesheet" href="/css/app.css"> --}}
 
   {{-- <link rel="stylesheet" href="/adminlte/plugins/datatables-select/css/select.bootstrap4.min.css"> --}}
-  <link rel="stylesheet" href="/adminlte/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -73,7 +73,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 {{-- <div class="dropdown-header text-center">
                     <strong>{{ auth()->user()->roles->count() ?'  '.auth()->user()->roles->first()->display_name : '' }}</strong>
                 </div> --}}
-                {{-- <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a> --}}
+                <a class="dropdown-item" href="{{ route('usuarios.edit', auth()->user()->id) }}">
+                  <i class="fa fa-user"></i> Perfil
+                </a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
@@ -101,8 +103,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
-
-    <div class="container mt-4">
+ {{-- mt-4 le quite --}}
+    <div class="container">
       @include('partials.session')
     </div>
 
@@ -132,19 +134,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="/adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="/adminlte/js/adminlte.min.js"></script>
+<script src="{{ asset('adminlte/js/adminlte.min.js') }}"></script>
 
-<script src="/adminlte/plugins/datatables-select/css/select.bootstrap4.min.js"></script>
+<script src="{{ asset('adminlte/plugins/datatables-select/css/select.bootstrap4.min.js') }}"></script>
 
 </body>
 </html>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<script src="/adminlte/plugins/select2/js/select2.full.min.js"></script>
+<script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 
 <script>
   // para licencias
@@ -210,6 +212,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     format: 'yyyy-mm-dd'
   });
 
+  //Paradero
+  $('#datepickerp1').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickerp2').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickerp3').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
+  $('#datepickerp4').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  });
 
 
 </script>

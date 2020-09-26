@@ -13,6 +13,7 @@ class SoatController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('roles:admin,recep');
     }
     
     /**
@@ -46,12 +47,16 @@ class SoatController extends Controller
 
     public function edit(soat $soat)
     {
-        //
+        $datos = Dato::all();
+        $vehiculos = vehiculo::all();
+        return view('soats.edit', compact('soat', 'datos', 'vehiculos'));
     }
 
-    public function update(Request $request, soat $soat)
+    public function update(Request $request, $id)
     {
-        //
+        // return $request->all();
+        soat::find($id)->update($request->all());
+        return back()->with('status', 'El soat fue actualizado con éxito!');
     }
 
     public function destroy(soat $soat)

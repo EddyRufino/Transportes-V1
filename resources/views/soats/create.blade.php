@@ -7,11 +7,11 @@
         
         <div class="row">
             <div class="col-sm-6">
-                <h5 class="lead text-secondary">Información de la póliza</h5>
+                <h5 class="lead text-secondary mover">Información de la póliza</h5>
                 <div class="form-group mt-4">
                     <label class="lead text-secondary mover">Nª Poliza:</label>
                     <div class="d-flex justify-content-center align-items-center">
-                    <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                    <input class="form-control col-md-8 bg-light shadow-sm "
                             name="num_poliza"
                             required
                             placeholder="Ingresa el número de poliza..."
@@ -30,7 +30,7 @@
                         <div class="form-group text-center mt-4">
                             <div class="form-group d-flex justify-content-center align-items-center">
                                 <label class="lead text-secondary">Desde:&nbsp;</label>
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                                <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                         name="inicio_poliza"
                                         id="datepickers1"
                                         placeholder="Ingresa la fecha..."
@@ -46,7 +46,7 @@
                         <div class="form-group text-center">
                             <div class="form-group d-flex justify-content-center align-items-center">
                                 <label class="lead text-secondary">Hasta:&nbsp;</label>
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                                <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                         name="fin_poliza"
                                         id="datepickers2"
                                         placeholder="Ingresa la fecha..."
@@ -65,7 +65,7 @@
                         <div class="form-group text-center mt-4">
                             <div class="form-group d-flex justify-content-center align-items-center">
                                 <label class="lead text-secondary">Desde:&nbsp;</label>
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                                <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                         name="inicio_certificado"
                                         id="datepickers3"
                                         placeholder="Ingresa la fecha..."
@@ -81,7 +81,7 @@
                         <div class="form-group text-center">
                             <div class="form-group d-flex justify-content-center align-items-center">
                                 <label class="lead text-secondary">Hasta:&nbsp;</label>
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                                <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                         name="fin_certificado"
                                         id="datepickers4"
                                         placeholder="Ingresa la fecha..."
@@ -118,9 +118,8 @@
                 <div class="form-group">
                     <label class="lead text-secondary mover">Teléfono:</label>
                     <div class="d-flex justify-content-center align-items-center">
-                    <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                    <input class="form-control col-md-8 bg-light shadow-sm "
                             name="telefono"
-                            required
                             placeholder="Ingresa el teléfono..."
                             value="{{ old('telefono') }}">
                     </div>
@@ -133,11 +132,11 @@
 
             </div>
             <div class="col-sm-6">
-                <h5 class="lead text-secondary">Datos del vehículo</h5 class="lead">
+                <h5 class="lead text-secondary mover">Datos del vehículo</h5 class="lead">
                     <div class="form-group mt-4 pt-4">
                         <label class="lead text-secondary mover">Uso vehículo:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="uso_vehiculo"
                                 required
                                 placeholder="Ingresa el uso..."
@@ -154,7 +153,7 @@
                             <div class="form-group mt-4">
                                 <label class="lead text-secondary mover pt-2">Fecha Hoy:</label>
                                 <div class="d-flex justify-content-center align-items-center">
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                                <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                         name="fecha_hoy"
                                         id="datepickers5"
                                         required
@@ -172,7 +171,7 @@
                             <div class="form-group mt-4">
                                 <label class="lead text-secondary mover pt-2">Hora Emisión:</label>
                                 <div class="d-flex justify-content-center align-items-center">
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                                <input class="form-control col-md-8 bg-light shadow-sm "
                                         name="hora_emision"
                                         required
                                         placeholder="Ingresa la hora..."
@@ -190,7 +189,7 @@
                             <div class="form-group mt-4">
                                 <label class="lead text-secondary mover pt-2">Monto Prima:</label>
                                 <div class="d-flex justify-content-center align-items-center">
-                                <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                                <input class="form-control col-md-8 bg-light shadow-sm "
                                         name="monto_prima"
                                         required
                                         placeholder="Ingresa el monto prima..."
@@ -207,7 +206,7 @@
                                 <div class="d-flex justify-content-center align-items-center">
                                     <select class="form-control select2 col-md-8 " name="vehiculo_id">
                                         @foreach ($vehiculos as $vehiculo)
-                                            <option class="" value="{{ $vehiculo->id }}">{{ $vehiculo->marca }}</option>
+                                            <option class="" value="{{ $vehiculo->id }}">{{ $vehiculo->placa }}</option>
                                         @endforeach
                     
                     

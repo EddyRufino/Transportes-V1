@@ -12,6 +12,7 @@ class VehiculoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('roles:admin,recep');
     }
 
     public function index()
@@ -40,12 +41,14 @@ class VehiculoController extends Controller
 
     public function edit(vehiculo $vehiculo)
     {
-        //
+        $categorias = Categoria::all();
+        return view('vehiculos.edit', compact('vehiculo', 'categorias'));
     }
 
-    public function update(Request $request, vehiculo $vehiculo)
+    public function update(Request $request, $id)
     {
-        //
+        vehiculo::find($id)->update($request->all());
+        return back()->with('status', 'El vehiculo fue actualizado con éxito!');
     }
 
     public function destroy(vehiculo $vehiculo)

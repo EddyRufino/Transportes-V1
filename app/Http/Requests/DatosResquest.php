@@ -27,6 +27,7 @@ class DatosResquest extends FormRequest
             'nombre' => 'required',
             'apellido' => 'required',
             'dni' => 'required|min:8|max:8',
+            'paradero_id' => ''
         ];
     }
 }

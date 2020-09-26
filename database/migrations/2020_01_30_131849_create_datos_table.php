@@ -19,7 +19,11 @@ class CreateDatosTable extends Migration
             $table->string('apellido', 150);
             $table->integer('dni');
             $table->string('sexo', 50)->nullable();
+            $table->string('avatar')->nullable();
+            $table->unsignedInteger('paradero_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('paradero_id')->references('id')->on('paraderos')->onDelete('cascade');
         });
     }
 

@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h2 class="text-center font-weight-bold lead text-secondary">CERTIFICADO DE INSPECCIÓN TÉCNICA VEHICULAR</h2>
+        <h2 class="mt-4 text-center font-weight-bold lead text-secondary">CERTIFICADO DE INSPECCIÓN TÉCNICA VEHICULAR</h2>
 		<form method="POST" action="{{ route('certificados.store') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
             <div class="form-group text-center mt-4">
                 <div class="form-group d-flex justify-content-center align-items-center">
 					<label class="lead text-secondary">Nª&nbsp;</label>
-                    <input class="form-control col-md-4 bg-light shadow-sm border-0"
+                    <input class="form-control col-md-4 bg-light shadow-sm "
                             name="num_certificado"
                             placeholder="Ingresa el número..."
                             value="{{ old('num_certificado') }}">
@@ -27,7 +27,7 @@
                   <div class="col">
                     <div class="form-group">
                         <label class="lead text-secondary ">Tipo Inspección:</label>
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="tipo_inspeccion"
                                 required
                                 placeholder="Ingresa el tipo inspeccion..."
@@ -43,10 +43,10 @@
                   <div class="col">
                     <div class="form-group">
                         <label class="lead text-secondary ">Fecha Inspección:</label>
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                        <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                 name="fecha_inspeccion"
                                 required
-                                id="datepickerv1"
+                                id="datepickerc1"
                                 placeholder="Ingresa la fecha inspección..."
                                 value="{{ old('fecha_inspeccion') }}">
                         
@@ -60,7 +60,7 @@
                   <div class="col">
                     <div class="form-group">
                         <label class="lead text-secondary ">Informe Inspección:</label>
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="num_inspeccion"
                                 required
                                 placeholder="Ingresa informe de inspección..."
@@ -98,7 +98,7 @@
                   <div class="col">
                     <div class="form-group">
                         <label class="lead text-secondary ">Resultado:</label>
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="resultado"
                                 required
                                 placeholder="Ingresa el resultado..."
@@ -114,10 +114,10 @@
                   <div class="col">
                     <div class="form-group">
                         <label class="lead text-secondary ">Vigencia:</label>
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                        <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                 name="vigencia"
                                 required
-                                id="datepickerv1"
+                                id="datepickervc2"
                                 placeholder="Ingresa la vigencia..."
                                 value="{{ old('vigencia') }}">
                         
@@ -131,7 +131,7 @@
                   <div class="col">
                     <div class="form-group">
                         <label class="lead text-secondary ">Próxima Inspección:</label>
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                        <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                 name="proxima_inspeccion"
                                 required
                                 id="datepickerv2"
@@ -148,9 +148,12 @@
                 </div>
             </div>
 <br>
-            <div class="row mt-4">
-                <button class="btn btn-primary btn-lg btn-block col-md-11" type="submit">Registrar</button>
+        <div class="form-group">
+            <div class="d-flex justify-content-center align-items-center">
+                <button class="col-md-8 btn btn-primary btn-block">Registrar</button>
+                <div></div>
             </div>
+        </div>
 
 		</form>
     </div>

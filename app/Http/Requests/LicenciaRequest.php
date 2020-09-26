@@ -31,7 +31,7 @@ class LicenciaRequest extends FormRequest
             'restricciones' => 'required',
             'domicilio' => 'required',
             'sangre' => 'required',
-            'num_expediente' => 'required',
+            'num_expediente' => '',
             'nacionalidad' => 'required',
             'fecha_nacimiento' => 'required',
             'categoria_id' => 'required',

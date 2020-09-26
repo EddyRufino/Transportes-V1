@@ -49,9 +49,11 @@ class CreateVehiculosTable extends Migration
             $table->string('altura', 80);
             $table->string('ancho', 80);
             $table->unsignedInteger('categoria_id');
+            $table->unsignedInteger('paradero_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('paradero_id')->references('id')->on('paraderos')->onDelete('cascade');
 
         });
     }

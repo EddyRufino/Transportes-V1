@@ -13,6 +13,7 @@ class LicenciaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('roles:admin,recep');
     }
 
     public function index()
@@ -56,12 +57,15 @@ class LicenciaController extends Controller
 
     public function edit(Licencia $licencia)
     {
-        //
+        $categorias = Categoria::all();
+        $usuarios = dato::all();
+        return view('licencias.edit', compact('licencia', 'categorias', 'usuarios'));
     }
 
-    public function update(Request $request, Licencia $licencia)
+    public function update(Request $request, $id)
     {
-        //
+        Licencia::find($id)->update($request->all());
+        return back()->with('status', 'La licencia fue actualizada con éxito!');
     }
 
     public function destroy(Licencia $licencia)

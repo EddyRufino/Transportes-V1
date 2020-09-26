@@ -10,6 +10,8 @@
     }
   }
 
+
+
   @media (min-width: 767px) and (max-width: 1000px) {
     .mover {
         display: block;
@@ -38,3 +40,21 @@
 .input-group-append {
   background-color: #ced4da;
 }
+
+.select2-container.select2-selection--single {
+  height: 0px !important;
+}
+
+.select2-container--default.select2-selection--single .select2-selection__rendered {
+  color: #444;
+  line-height: 0rem !important;
+}
+
+/* .select2-container.select2-selection--single {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 38px;
+  user-select: none;
+  -webkit-user-select: none;
+} */

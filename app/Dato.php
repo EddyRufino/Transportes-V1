@@ -10,4 +10,20 @@ class Dato extends Model
     [
         'nombre', 'apellido', 'dni'
     ];
+
+    public function paradero()
+    {
+        return $this->belongsTo(Paradero::class);
+    }
+
+    public function soat()
+    {
+        return $this->belongsTo(soat::class);
+    }
+
+    // V-2
+    public function licencia()
+    {
+        return $this->hasOne(Licencia::class);
+    }
 }

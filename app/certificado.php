@@ -10,6 +10,6 @@ class certificado extends Model
 
     public function vehiculo()
     {
-        return $this->belongsTo(Vehiculo::class);
+        return $this->belongsTo(vehiculo::class);
     }
 }

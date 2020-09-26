@@ -48,6 +48,8 @@
                 </div>
             </div>
 
+        @auth
+            @if (auth()->user()->hasRoles(['admin', 'recep']))
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-blue">
                   <div class="inner">
@@ -60,6 +62,8 @@
                   <a href="{{ route('soats.index') }}" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+            @endif
+        @endauth
 
         </div>
     </div>

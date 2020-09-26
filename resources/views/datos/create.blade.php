@@ -2,14 +2,15 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('datos.store') }}" method="post">
+        <form action="{{ route('datos.store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
 
+            <h2 class="text-center font-weight-bold  text-secondary mb-4 pb-4">Datos de la Persona</h2>
 
             <div class="form-group">
                 <label class="lead text-secondary mover">Nombre:</label>
                 <div class="d-flex justify-content-center align-items-center">
-                <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                <input class="form-control col-md-8 bg-light shadow-sm "
                         name="nombre"
                         required
                         placeholder="Ingresa el nombre..."
@@ -25,7 +26,7 @@
             <div class="form-group">
                 <label class="lead text-secondary mover">Apellido:</label>
                 <div class="d-flex justify-content-center align-items-center">
-                <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                <input class="form-control col-md-8 bg-light shadow-sm "
                         name="apellido"
                         required
                         placeholder="Ingresa el apellido..."
@@ -41,7 +42,7 @@
             <div class="form-group">
                 <label class="lead text-secondary mover">DNI:</label>
                 <div class="d-flex justify-content-center align-items-center">
-                <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                <input class="form-control col-md-8 bg-light shadow-sm "
                         name="dni"
                         required
                         type="number"
@@ -54,6 +55,33 @@
                         </span>
                     @endif
             </div>
+{{-- <br> --}}
+            {{-- <div class="form-group">
+            <p>
+                <label class="lead text-secondary font-weight-bold mover" for="avatar">
+                    Autorización:
+                    <input type="file" name="avatar">
+                </label>
+            </p>
+            </div> --}}
+            <div class="form-group">
+                <label class="lead text-secondary mover">Paradero:</label>
+                <div class="d-flex justify-content-center align-items-center">
+                    <select class="form-control select2 col-md-8 " name="paradero_id">
+                        @foreach ($paraderos as $paradero)
+                            <option class="" value="{{ $paradero->id }}">{{ $paradero->nombre }}</option>
+                        @endforeach
+    
+    
+                    </select>
+                </div>
+                    @if ($errors->has('paradero_id'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('paradero_id') }}</strong>
+                        </span>
+                    @endif
+            </div>
+
             <br>
             <div class="form-group">
             	<div class="d-flex justify-content-center align-items-center">

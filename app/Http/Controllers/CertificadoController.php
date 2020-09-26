@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\certificado;
 use App\vehiculo;
+use App\certificado;
 use Illuminate\Http\Request;
 
 class CertificadoController extends Controller
@@ -11,6 +11,7 @@ class CertificadoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('roles:admin,recep');
     }
 
     public function index()
@@ -38,12 +39,14 @@ class CertificadoController extends Controller
 
     public function edit(certificado $certificado)
     {
-        //
+        $vehiculos = vehiculo::all();
+        return view('certificados.edit', compact('certificado', 'vehiculos'));
     }
 
-    public function update(Request $request, certificado $certificado)
+    public function update(Request $request, $id)
     {
-        //
+        certificado::find($id)->update($request->all());
+        return back()->with('status', 'El certificado fue actualizado con éxito!');
     }
 
     public function destroy(certificado $certificado)

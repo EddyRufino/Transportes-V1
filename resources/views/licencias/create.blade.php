@@ -5,16 +5,15 @@
         {{ csrf_field() }}
 
         <div class="container">
-            <h2 class="text-center font-weight-bold lead text-secondary">LICENCIA DE CONDUCIR</h2>
+            <h2 class="text-center font-weight-bold lead text-secondary mt-4">LICENCIA DE CONDUCIR</h2>
             <div class="row mt-4 pt-4">
                 <div class="col-md-6">
 
                     <div class="form-group">
                         <label class="lead text-secondary mover">Nª Licencia:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="num_licencia"
-                                type="number"
                                 required
                                 placeholder="Ingresa el número de licencia..."
                                 value="{{ old('num_licencia') }}">
@@ -29,7 +28,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Clase:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="clase"
                                 required
                                 placeholder="Ingresa la clase..."
@@ -63,7 +62,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Fecha Expedición:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                        <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                     name="fecha_expedicion"
                                     id="datepicker"
                                     placeholder="Ingresa la fecha Expedicion..."
@@ -79,7 +78,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Fecha Revalidación:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                        <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                     name="fecha_revalidacion"
                                     id="datepicker2"
                                     placeholder="Ingresa la fecha Expedicion..."
@@ -117,7 +116,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Restricciones:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="restricciones"
                                 required
                                 placeholder="Ingresa las restricciones..."
@@ -133,7 +132,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Domilicio:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="domicilio"
                                 required
                                 placeholder="Ingresa el domicilio..."
@@ -149,7 +148,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Tipo Sangre:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="sangre"
                                 required
                                 placeholder="Ingresa el tipo de sangre..."
@@ -165,10 +164,8 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Nª Expediente:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="num_expediente"
-                                type="number"
-                                required
                                 placeholder="Ingresa el número de expediente..."
                                 value="{{ old('num_expediente') }}">
                         </div>
@@ -182,7 +179,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Nacionalidad:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0"
+                        <input class="form-control col-md-8 bg-light shadow-sm "
                                 name="nacionalidad"
                                 required
                                 placeholder="Ingresa la nacionalidad..."
@@ -198,7 +195,7 @@
                     <div class="form-group">
                         <label class="lead text-secondary mover">Fecha Nacimiento:</label>
                         <div class="d-flex justify-content-center align-items-center">
-                        <input class="form-control col-md-8 bg-light shadow-sm border-0 datepicker"
+                        <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                     name="fecha_nacimiento"
                                     id="datepicker3"
                                     placeholder="Ingresa la fecha Expedicion..."

@@ -25,13 +25,13 @@ class CreateSoatsTable extends Migration
             $table->string('hora_emision', 50);
             $table->string('monto_prima', 80);
             $table->string('descripcion', 200)->nullable();
-            $table->integer('telefono');
+            $table->integer('telefono')->nullable();
             $table->unsignedInteger('vehiculo_id');
             $table->unsignedInteger('dato_id');
             $table->timestamps();
 
-            $table->foreign('vehiculo_id')->references('id')->on('vehiculos');
-            $table->foreign('dato_id')->references('id')->on('datos');
+            $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');
+            $table->foreign('dato_id')->references('id')->on('datos')->onDelete('cascade');
 
         });
     }

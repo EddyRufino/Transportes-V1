@@ -25,7 +25,7 @@ class CreateCertificadosTable extends Migration
             $table->unsignedInteger('vehiculo_id');
             $table->timestamps();
 
-            $table->foreign('vehiculo_id')->references('id')->on('vehiculos');
+            $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');
 
         });
     }

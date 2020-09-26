@@ -15,22 +15,22 @@ class CreateLicenciasTable extends Migration
     {
         Schema::create('licencias', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('num_licencia');
+            $table->string('num_licencia');
             $table->string('clase', 45);
             $table->date('fecha_expedicion');
             $table->date('fecha_revalidacion');
             $table->string('restricciones', 100);
             $table->string('domicilio', 150);
             $table->string('sangre', 50);
-            $table->integer('num_expediente');
+            $table->string('num_expediente');
             $table->string('nacionalidad', 50);
             $table->date('fecha_nacimiento');
             $table->unsignedInteger('categoria_id');
             $table->unsignedInteger('dato_id');
             $table->timestamps();
 
-            $table->foreign('categoria_id')->references('id')->on('categorias');
-            $table->foreign('dato_id')->references('id')->on('datos');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('dato_id')->references('id')->on('datos')->onDelete('cascade');
 
         });
     }

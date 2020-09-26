@@ -24,11 +24,66 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+            @auth
+               @if (auth()->user()->hasRoles(['admin', 'recep']))
+               <li class="nav-item has-treeview ">
+                 <a href="#" class="nav-link ">
+                   <i class="nav-icon fa fa-university"></i>
+                   <p>
+                     Paradero
+                     <i class="right fas fa-angle-left"></i>
+                   </p>
+                 </a>
+                 <ul class="nav nav-treeview">
+                   <li class="nav-item">
+                     <a href="{{ route('paraderos.index') }}" class="nav-link">
+                       <i class="far fa-circle nav-icon"></i>
+                       <p>Listar Paraderos</p>
+                     </a>
+                   </li>
+                   <li class="nav-item">
+                     <a href="{{ route('paraderos.create') }}" class="nav-link">
+                       <i class="far fa-circle nav-icon"></i>
+                       <p>Crear Paradero</p>
+                     </a>
+                   </li>
+                 </ul>
+               </li>
+               @endif
+            @endauth
+
+
+            @auth
+            @if (auth()->user()->hasRoles(['admin', 'recep']))
+            <li class="nav-item has-treeview ">
+              <a href="#" class="nav-link ">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Listado de Socios
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('integrantes.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Listar Socios</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            @endif
+         @endauth
+        
+        
+        @auth
+          @if (auth()->user()->hasRoles(['admin', 'recep']))
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Usuarios
+                Integrantes
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -36,17 +91,19 @@
               <li class="nav-item">
                 <a href="{{ route('datos.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Usuarios</p>
+                  <p>Listar Integrantes</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('datos.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Usuario</p>
+                  <p>Crear Integrante</p>
                 </a>
               </li>
             </ul>
           </li>
+          @endif
+        @endauth
 
           {{-- <li class="nav-item">
             <a href="#" class="nav-link">
@@ -58,9 +115,11 @@
             </a>
           </li> --}}
 
+        @auth
+          @if (auth()->user()->hasRoles(['admin', 'recep']))
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-folder"></i>
+              <i class="nav-icon fas fa-list-alt"></i>
               <p>
                 Licencia
                 <i class="right fas fa-angle-left"></i>
@@ -81,11 +140,14 @@
               </li>
             </ul>
           </li>
+          @endif
+        @endauth
 
-
+        @auth
+          @if (auth()->user()->hasRoles(['admin', 'recep']))
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-folder"></i>
+              <i class="nav-icon fas fa-car"></i>
               <p>
                 Vehículos
                 <i class="right fas fa-angle-left"></i>
@@ -106,10 +168,14 @@
               </li>
             </ul>
           </li>
+          @endif
+        @endauth
 
+        @auth
+          @if (auth()->user()->hasRoles(['admin', 'recep']))
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-folder"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Certificados
                 <i class="right fas fa-angle-left"></i>
@@ -130,10 +196,14 @@
               </li>
             </ul>
           </li>
+          @endif
+        @endauth
 
+        @auth
+          @if (auth()->user()->hasRoles(['admin', 'recep']))
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-folder"></i>
+              <i class="nav-icon fa fa-folder-open"></i>
               <p>
                 Soats
                 <i class="right fas fa-angle-left"></i>
@@ -154,6 +224,56 @@
               </li>
             </ul>
           </li>
+          @endif
+        @endauth
+
+          @auth
+            @if (auth()->user()->hasRoles(['admin']))
+            <li class="nav-item has-treeview ">
+              <a href="#" class="nav-link ">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Usuarios del Sistema
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('usuarios.index') }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Lista usuarios sistema</p>
+                    </a>
+                </li>
+              
+              </ul>
+            </li>
+            @endif
+          @endauth 
+
+          {{-- <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+                Autorización
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('autorizaciones.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Autorizaciones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('autorizaciones.create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Subir Autorización</p>
+                </a>
+              </li>
+            </ul>
+          </li> --}}
 
         </ul>
       </nav>
@@ -161,3 +281,7 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+  {{-- <section class="aside-extra">
+    <h1>xD</h1>
+  </section> --}}

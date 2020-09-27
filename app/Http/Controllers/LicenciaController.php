@@ -6,6 +6,7 @@ use App\Dato;
 use App\Licencia;
 use App\Categoria;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\LicenciaRequest;
 
 class LicenciaController extends Controller
@@ -82,5 +83,34 @@ class LicenciaController extends Controller
         $licencias = Licencia::where('num_licencia', 'LIKE', '%'.$search.'%')
                     ->paginate(6);
         return view('licencias.index', compact('licencias'));
+    }
+
+    public function exportExcel(Licencia $licencia)
+    {
+        Excel::create('Licencias', function($excel) {
+
+            $excel->sheet('Datos', function($sheet) {
+
+                // Header
+                $sheet->row(1, ['N. Licencia', 'Clase', 'F. Expedicion', 'F. Revaldiación', 'restricciones', 'domicilio', 'sangre', 'num_expediente', 'Nombre']);
+
+                // Data
+                $licencias = Licencia::all();
+
+                foreach ($licencias as $licencia) {
+                    $row = [];
+                    $row[0] = $licencia->num_licencia;
+                    $row[1] = $licencia->clase;
+                    $row[2] = $licencia->fecha_expedicion;
+                    $row[3] = $licencia->fecha_revalidacion;
+                    $row[4] = $licencia->restricciones;
+                    $row[5] = $licencia->domicilio;
+                    $row[6] = $licencia->sangre;
+                    $row[7] = $licencia->num_expediente;
+                    $row[8] = $licencia->dato->nombre;
+                    $sheet->appendRow($row);
+                }
+            });
+        })->export('xls');
     }
 }

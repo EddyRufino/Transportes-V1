@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\vehiculo;
 use App\Categoria;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\VehiculoRequest;
 
 class VehiculoController extends Controller
@@ -65,5 +66,17 @@ class VehiculoController extends Controller
         $vehiculos = vehiculo::where('placa', 'LIKE', '%'.$search.'%')
                     ->paginate(6);
         return view('vehiculos.index', compact('vehiculos'));
+    }
+
+    public function exportExcel(Vehiculo $vehiculo)
+    {
+        Excel::create('Vehiculos', function($excel) {
+            // Si quieres usar iner join ve LicenciaController o el vídeo de pildoras informaticas https://www.youtube.com/watch?v=s-ZeszfCoEs&list=LLVjaoA9YRI5cKPmiTMcUjSw&index=1&t=479s
+            $excel->sheet('Datos', function($sheet) {
+                $vehiculos = Vehiculo::select('zona_registral', 'oficina_regional', 'placa', 'partida_registral', 'duaidan', 'titulo', 'fecha_titulo', 'marca', 'vim', 'anio_fabrica', 'anio_modelo')->get();
+                $sheet->fromArray($vehiculos);
+
+            });
+        })->export('xls');
     }
 }

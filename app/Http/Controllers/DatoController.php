@@ -6,6 +6,7 @@ use App\Dato;
 use App\Paradero;
 use Illuminate\Http\Request;
 use App\Http\Requests\DatosResquest;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DatoController extends Controller
 {
@@ -107,4 +108,16 @@ class DatoController extends Controller
     //                 ->paginate(6);
     //     return view('autorizacion.index', compact('datos'));
     // }
+
+    public function exportExcel(Dato $dato)
+    {
+        Excel::create('Integrantes', function($excel) {
+
+            $excel->sheet('Datos', function($sheet) {
+                $datos = Dato::select('nombre', 'apellido', 'dni')->get();
+                $sheet->fromArray($datos);
+
+            });
+        })->export('xls');
+    }
 }

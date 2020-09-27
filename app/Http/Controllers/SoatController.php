@@ -7,6 +7,7 @@ use App\Dato;
 use App\vehiculo;
 use Illuminate\Http\Request;
 use App\Http\Requests\SoatsRequest;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SoatController extends Controller
 {
@@ -73,5 +74,34 @@ class SoatController extends Controller
         $soats = soat::where('num_poliza', 'LIKE', '%'.$search.'%')
                     ->paginate(6);
         return view('soats.index', compact('soats'));
+    }
+
+    public function exportExcel(Soat $soat)
+    {
+        Excel::create('Soats', function($excel) {
+
+            $excel->sheet('Datos', function($sheet) {
+
+                // Header
+                $sheet->row(1, ['num_poliza', 'uso_vehiculo', 'inicio_poliza', 'fin_poliza', 'fecha_hoy', 'hora_emision', 'monto_prima', 'descripcion', 'Nombre']);
+
+                // Data
+                $soats = Soat::all();
+
+                foreach ($soats as $soat) {
+                    $row = [];
+                    $row[0] = $soat->num_poliza;
+                    $row[1] = $soat->uso_vehiculo;
+                    $row[2] = $soat->inicio_poliza;
+                    $row[3] = $soat->fin_poliza;
+                    $row[4] = $soat->fecha_hoy;
+                    $row[5] = $soat->hora_emision;
+                    $row[6] = $soat->monto_prima;
+                    $row[7] = $soat->descripcion;
+                    $row[8] = $soat->dato->nombre;
+                    $sheet->appendRow($row);
+                }
+            });
+        })->export('xls');
     }
 }

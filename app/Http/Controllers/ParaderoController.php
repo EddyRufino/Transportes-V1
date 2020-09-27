@@ -6,6 +6,7 @@ use App\Paradero;
 use App\Dato;
 use App\vehiculo;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\ParaderoRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -119,4 +120,16 @@ class ParaderoController extends Controller
 
     //     return view('paraderos.index', compact('paraderos'));
     // }
+
+    public function exportExcel(Paradero $paradero)
+    {
+        Excel::create('Paraderos', function($excel) {
+
+            $excel->sheet('Datos', function($sheet) {
+                $paraderos = Paradero::select('nombre', 'num_operacion', 'fecha_caducidad', 'direccion', 'presidente', 'dni_presidente')->get();
+                $sheet->fromArray($paraderos);
+
+            });
+        })->export('xls');
+    }
 }

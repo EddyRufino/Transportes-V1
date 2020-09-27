@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\vehiculo;
 use App\certificado;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CertificadoController extends Controller
 {
@@ -63,5 +64,36 @@ class CertificadoController extends Controller
         $certificados = certificado::where('num_certificado', 'LIKE', '%'.$search.'%')
                     ->paginate(6);
         return view('certificados.index', compact('certificados'));
+    }
+
+    public function exportExcel(Certificado $certificado)
+    {
+        Excel::create('Certificados', function($excel) {
+
+            $excel->sheet('Datos', function($sheet) {
+
+                // Header
+                $sheet->row(1, ['num_certificado', 'tipo_inspeccion', 'fecha_inspeccion', 'num_inspeccion', 'resultado', 'vigencia', 'proxima_inspeccion', 'Placa']);
+
+                // Data
+                $certificados = Certificado::all();
+
+                foreach ($certificados as $certificado) {
+                    $row = [];
+                    $row[0] = $certificado->num_certificado;
+                    $row[1] = $certificado->tipo_inspeccion;
+                    $row[2] = $certificado->fecha_inspeccion;
+                    $row[3] = $certificado->num_inspeccion;
+                    $row[4] = $certificado->resultado;
+                    $row[5] = $certificado->vigencia;
+                    $row[6] = $certificado->proxima_inspeccion;
+                    $row[7] = $certificado->vehiculo->placa;
+                    $sheet->appendRow($row);
+                }
+
+                
+
+            });
+        })->export('xls');
     }
 }

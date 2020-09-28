@@ -43,7 +43,7 @@
                         @enderror --}}
                     </div>
 
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label class="" for="password_confirmation">Password Confirm</label>
                         <input class="form-control bg-light shadow-sm    border-0 "
                                 type="password"
@@ -56,13 +56,13 @@
                         <span class="help-block">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
                         </span>
-                    @endif --}}
+                    @endif
                         {{-- @error('password_confirmation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
-                    {{-- </div> --}}
+                    </div>
 
                 <button class="btn btn-primary btn-lg btn-block">Actualizar</button>
                 <a class="btn btn-outline-secondary btn-block" href="{{route('home')}}">Cancelar</a>

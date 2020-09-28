@@ -5,7 +5,7 @@
 <div class="container">
     <div class="d-flex justify-content-start align-items-center">
         <h1 class="display_4 text-secondary mr-2">Usuarios</h1>
-        {{-- <a class="btn btn-success" href="{{ route('usuarios.create') }}">Nuevo</a> --}}
+        <a class="btn btn-success" href="{{ route('usuarios.create') }}">Nuevo</a>
     </div>
     <table class="table table-striped mt-4">
         <thead>

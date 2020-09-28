@@ -32,24 +32,27 @@ class UserController extends Controller
 
     public function store(UsuariosRequest $request)
     {
-        // $user = User::create($request->validated());
+        $user = User::create($request->all());
         // return $request->all();
-        $user = new User;
+        // $user = new User;
         
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
 
         $user->roles()->attach($request->roles);
 
+        // dd($user);
+
         $user->save();
 
-        return redirect()->route('usuarios.index')->with('status', 'Usuario guardado con éxito!');
+        return back()->with('status', 'Usuario guardado con éxito!');
     }
 
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
 
     public function edit($id)
@@ -69,17 +72,38 @@ class UserController extends Controller
         //     'password' => '',
         // ]);
 
-        $user = User::findOrFail($id);
+        // $user = User::findOrFail($id);
         
-        $user->update([
-            $user->name = $request->name,
-            $user->email = $request->email,
-            $user->password = $request->password
-        ]);
+        // $user->update([
+        //     $user->name = $request->name,
+        //     $user->email = $request->email,
+        //     $user->password = $request->password
+        // ]);
+
+        // $user->roles()->sync($request->roles);
+
+        $rules = [
+            'name' => 'required',
+            'email' => 'required', Rule::unique('users')->ignore($id),
+            'avatar' => '',
+            // 'password' => 'required|confirmed',
+            'password' => '',
+        ];
+
+        $this->validate($request, $rules);
+
+        $user = User::findOrFail($id);
+
+        $user->update($request->only(['name', 'email']));
+
+        if ($request->has('password')) {
+            $user->password = $request->password;
+            $user->update();
+        }
 
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('usuarios.index')->with('status', 'Usuario actualizado con éxito!');
+        return back()->with('status', 'Usuario actualizado con éxito!');
     }
 
     public function destroy($id)

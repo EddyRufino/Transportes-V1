@@ -16,19 +16,19 @@
                 action="{{ route('usuarios.update', $user->id) }}" method="post">
                 {{ csrf_field() }} {{ method_field('PUT') }}
 
-                <h4 class="text-center text-primary">Datos Usuario</h4>
+                <h4 class="text-center text-secondary">Editar Usuario</h4>
 
                 {{-- <img width="100" src="{{ Storage::url($user->avatar) }}" alt=""> --}}
 
                 @include('forms.formUser')
 
                 <div class="form-group">
-                    <label class="" for="password">Password</label>
-                    <input class="form-control bg-light shadow-sm    border-0"
+                    <label class="" for="password">Contraseña</label>
+                    <input class="form-control bg-light shadow-sm    "
                                 type="password"
                                 name="password"
                                 id="password"
-                                placeholder="Password..."
+                                placeholder="Contraseña..."
                                 value="{{ old('password') }}">
 
                     @if ($errors->has('password'))
@@ -43,26 +43,26 @@
                         @enderror --}}
                     </div>
 
-                    <div class="form-group">
-                        <label class="" for="password_confirmation">Password Confirm</label>
-                        <input class="form-control bg-light shadow-sm    border-0 "
+                    {{-- <div class="form-group">
+                        <label class="" for="password_confirmation">Confirma contraseña</label>
+                        <input class="form-control bg-light shadow-sm     "
                                 type="password"
                                 name="password_confirmation"
                                 id="password_confirmation"
-                                placeholder="Nombre..."
-                                value="{{ old('password') }}">
+                                placeholder="Repite contraseña..."
+                                value="{{ old('password') }}"> --}}
 
-                    @if ($errors->has('password_confirmation'))
+                  {{--   @if ($errors->has('password_confirmation'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
                         </span>
-                    @endif
+                    @endif --}}
                         {{-- @error('password_confirmation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
-                    </div>
+                    {{-- </div> --}}
 
                 <button class="btn btn-primary btn-lg btn-block">Actualizar</button>
                 <a class="btn btn-outline-secondary btn-block" href="{{route('home')}}">Cancelar</a>

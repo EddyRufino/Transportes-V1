@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3">
         <h2 class="text-center font-weight-bold lead text-secondary">CERTIFICADO DE INSPECCIÓN TÉCNICA VEHICULAR</h2>
         <div class="form-group text-center">
             <div class="form-group d-flex justify-content-center align-items-center">

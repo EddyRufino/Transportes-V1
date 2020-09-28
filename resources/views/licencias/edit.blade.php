@@ -5,7 +5,7 @@
     <form action="{{ route('licencias.update', $licencia->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }} {{ method_field('PUT') }}
 
-        <div class="container">
+        <div class="container mt-4">
             <h2 class="text-center font-weight-bold lead text-secondary">EDITAR LICENCIA DE CONDUCIR</h2>
             <div class="row mt-4 pt-4">
                 <div class="col-md-6">

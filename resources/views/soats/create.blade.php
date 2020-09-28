@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
         <form action="{{ route('soats.store') }}" method="post">
             {{ csrf_field() }}
         

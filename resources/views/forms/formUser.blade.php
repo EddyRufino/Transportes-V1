@@ -1,6 +1,6 @@
 <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
     <label for="name">Nombre</label>
-    <input class="form-control bg-light shadow-sm border-0"
+    <input class="form-control bg-light shadow-sm "
             name="name"
             id="name"
             placeholder="Nombre..."
@@ -15,7 +15,7 @@
 
 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
     <label for="email">Correo electronico</label>
-    <input class="form-control bg-light shadow-sm border-0"
+    <input class="form-control bg-light shadow-sm "
             type="email"
             name="email"
             id="email"

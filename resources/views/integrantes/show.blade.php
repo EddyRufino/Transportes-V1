@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container text-center">
+<div class="container text-center mt-4">
     <h2 class="text-secondary">Socio de la asosiación de mototaxistas: {{ $integrante[0]->nombrePara }}</h2>
     <br>
     <div class="row align-items-start">

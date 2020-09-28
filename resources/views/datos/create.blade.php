@@ -5,7 +5,7 @@
         <form action="{{ route('datos.store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
 
-            <h2 class="text-center font-weight-bold  text-secondary mb-4 pb-4">Datos de la Persona</h2>
+            <h2 class="mt-4 text-center font-weight-bold  text-secondary mb-2 pb-4">Datos del integrante</h2>
 
             <div class="form-group">
                 <label class="lead text-secondary mover">Nombre:</label>

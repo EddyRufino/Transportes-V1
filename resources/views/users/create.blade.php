@@ -9,17 +9,17 @@
                         <li> {{ $error }} </li>
                     @endforeach
                 @endif --}}
-                    <form class="bg-white shadow rounded py-3 px-4"
+                    <form class="mt-4 bg-white shadow rounded py-3 px-4"
                             enctype="multipart/form-data"
                             action="{{ route('usuarios.store') }}" method="post">
                             {{ csrf_field() }}
-                        <h4 class="display-4">Crear usuario</h4>
+                        <h4 class="text-center text-secondary">Crear Usuario</h4>
 
                         @include('forms.formUser')
 
                         <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password">Contraseña</label>
-                            <input class="form-control bg-light shadow-sm border-0 "
+                            <input class="form-control bg-light shadow-sm  "
                                         type="password"
                                         name="password"
                                         id="password"
@@ -35,7 +35,7 @@
 
                             <div class="form-group">
                                 <label for="password_confirmation">Repite Contraseña</label>
-                                <input class="form-control bg-light shadow-sm border-0 "
+                                <input class="form-control bg-light shadow-sm  "
                                         type="password"
                                         name="password_confirmation"
                                         id="password_confirmation"
@@ -51,7 +51,7 @@
 {{-- 
                             <div class="form-group">
                                 <label for="email">DNI</label>
-                                <input class="form-control bg-light shadow-sm @error('dni') is-invalid @else border-0 @enderror"
+                                <input class="form-control bg-light shadow-sm @error('dni') is-invalid @else  @enderror"
                                         name="dni"
                                         placeholder="Ingrese DNI..."
                                         value="{{ old('dni', $user->dni) }}">

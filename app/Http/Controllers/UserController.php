@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::latest()->paginate(6);
+        $users = User::latest()->paginate(3);
         return view('users.index', compact('users'));
     }
 
@@ -50,15 +50,23 @@ class UserController extends Controller
     }
 
     public function show($id)
-    {
+    {        
         $user = User::findOrFail($id);
+
+        $this->authorize('show', $user);
+
         return view('users.show', compact('user'));
     }
 
     public function edit($id)
     {
+        
         $user = User::findOrFail($id);
+
+        $this->authorize('update', $user);
+
         $roles = Role::pluck('display_name', 'id');
+
         return view('users.edit', compact('user', 'roles'));
     }
 

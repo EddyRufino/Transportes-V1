@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container text-center">
+    <div class="container text-center mt-4">
       <div class="row align-items-start">
         <div class="col">
           <div class="form-group">

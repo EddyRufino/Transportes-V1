@@ -34,7 +34,7 @@ Route::get('/searchAutorizacion', 'AutorizacionController@searchAutorizacion')->
 
 Route::get('integrantes', 'IntegranteController@index')->name('integrantes.index');
 Route::get('integrantes/{integrante}', 'IntegranteController@show')->name('integrantes.show');
-Route::get('/searchIntegrantes', 'IntegranteController@search')->name('integrantes.search');
+Route::get('/buscar', 'IntegranteController@search')->name('integrantes.search');
 // Route::get('/searchIntegrante', 'IntegranteController@searchrr')->name('integrantes.searchrr');
 
 Route::resource('usuarios', 'UserController');

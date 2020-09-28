@@ -10,6 +10,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    {{-- Recaptcha --}}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -70,7 +73,7 @@
                 </div>
             </div>
         </nav>
-
+        
         @yield('content')
     </div>
 

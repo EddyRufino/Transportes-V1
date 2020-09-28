@@ -1,7 +1,8 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
+        <h2 class="text-center font-weight-bold lead text-secondary">Ediar integrante</h2>
         <form action="{{ route('datos.update', $dato->id) }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }} {{ method_field('PUT') }}
 
@@ -70,7 +71,7 @@
                     <select class="form-control select2 col-md-8 " name="paradero_id">
                         @foreach ($paraderos as $paradero)
                             <option class="" value="{{ $paradero->id }}"
-                                {{ old('paradero_id', $paradero->id) == $paradero->id ? 'selected' : '' }}
+                                {{ old('paradero_id', $dato->paradero->id) == $paradero->id ? 'selected' : '' }}
                                 >
                                 {{ $paradero->nombre }}
                             </option>

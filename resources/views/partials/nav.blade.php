@@ -31,7 +31,7 @@
                  <a href="#" class="nav-link ">
                    <i class="nav-icon fa fa-university"></i>
                    <p>
-                     Paradero
+                     Paraderos
                      <i class="right fas fa-angle-left"></i>
                    </p>
                  </a>
@@ -121,7 +121,7 @@
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-list-alt"></i>
               <p>
-                Licencia
+                Licencias
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

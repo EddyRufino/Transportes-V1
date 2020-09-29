@@ -3,15 +3,15 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3 class="text-white">{{ $datos->count() }}</h3>
-                        <p class="text-white">Usuarios</p>
+                        <p class="text-white">Integrantes</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                     <a href="{{ route('datos.index') }}" class="small-box-footer">
                         <span class="text-white">Más info</span>
@@ -27,7 +27,7 @@
                         <p>Licencias de conducir</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                        <i class="fas fa-list-alt"></i>
                     </div>
                     <a href="{{ route('licencias.index') }}" class="small-box-footer">Más info
                         <i class="fa fa-arrow-circle-right"></i>
@@ -42,7 +42,7 @@
                     <p>Vehículos</p>
                   </div>
                   <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+                    <i class="fas fa-car"></i>
                   </div>
                   <a href="{{ route('vehiculos.index') }}" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
@@ -57,7 +57,7 @@
                     <p>Soats</p>
                   </div>
                   <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="fa fa-folder-open"></i>
                   </div>
                   <a href="{{ route('soats.index') }}" class="small-box-footer">Más info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>

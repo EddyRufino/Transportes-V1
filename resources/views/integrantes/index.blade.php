@@ -28,7 +28,7 @@
             <form method="GET" action="{{ route('integrantes.search') }}">
                 <div class="col-md-6">
                     <div class="input-group">
-                  <input class="form-control" name="search" type="search" placeholder="Busca una receta" aria-label="Search">
+                  <input class="form-control" name="search" type="search" placeholder="Busca un paradero" aria-label="Search">
                         {{-- <select class="form-control select2" name="select" required>
                             <option>Elige</option>
                             @foreach ($paraderos as $paradero)
@@ -57,8 +57,8 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Nombre</th>
-            {{-- <th scope="col">Dirección</th> --}}
+            <th scope="col">Nombres y Apellidos</th>
+            <th scope="col">DNI</th>
             <th>Paradero</th>
             {{-- <th>Placa</th> --}}
             <th scope="col">Acciones</th>
@@ -68,7 +68,10 @@
         
             @forelse ($integrantes as $integrante)
             <tr>
-                <td>{{ $integrante->nombre . " " . $integrante->apellido }}</td>
+                <td>
+                  {{ $integrante->nombre . " " . $integrante->apellido }}
+                </td>
+                <td>{{ $integrante->dni}}</td>
                 <td>{{ $integrante->paradero->nombre }}</td>
                 {{-- <td>{{ $integrante->soat->num_poliza }}</td> --}}
                 <td>

@@ -5,7 +5,7 @@
     <form action="{{ route('certificados.update', $certificado->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }} {{ method_field('PUT') }}
 
-        <h2 class="text-center read text-secondary">Editar Certificado</h2>
+        <h2 class="text-center read text-secondary mt-4">Editar Certificado</h2>
 
         <div class="form-group text-center mt-4">
             <div class="form-group d-flex justify-content-center align-items-center">
@@ -24,7 +24,7 @@
         </div>
         <br>        
 
-        <div class="container">
+        <div class="container ml-4">
             <div class="row align-items-start">
               <div class="col">
                 <div class="form-group">
@@ -98,7 +98,7 @@
 <br>
         <h2 class="mt-4 text-center font-weight-bold lead text-secondary">RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR</h2>
         <br>
-        <div class="container">
+        <div class="container ml-4">
             <div class="row align-items-start">
               <div class="col">
                 <div class="form-group">

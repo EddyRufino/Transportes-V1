@@ -98,9 +98,10 @@ class ParaderoController extends Controller
         return redirect()->route('paraderos.index');
     }
 
-    public function destroy($id)
+    public function destroy(Paradero $paradero)
     {
-        //
+        $paradero->delete();
+        return back()->with('status', 'El paradero fue eliminado con éxito!');
     }
 
     public function search(Request $request)

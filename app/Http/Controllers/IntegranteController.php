@@ -12,7 +12,7 @@ class IntegranteController extends Controller
 {
     public function index(Request $request)
     {
-        $integrantes = Dato::Paginate(2);
+        $integrantes = Dato::Paginate(10);
         $paraderos = Paradero::select('id', 'nombre')->get();
         return view('integrantes.index', compact('integrantes', 'paraderos'));
     }
@@ -25,8 +25,8 @@ class IntegranteController extends Controller
         // $searchrr = $request->get('searchrr');
 
         $integrantes = Dato::Join('Paraderos', 'paraderos.id', '=', 'datos.paradero_id')
-            ->select('datos.nombre', 'paraderos.nombre as nombre_paradero')
-            ->where('paraderos.nombre', 'LIKE', '%'.$search.'%')->paginate(3); 
+            ->select('datos.nombre', 'datos.dni', 'paraderos.nombre as nombre_paradero')
+            ->where('paraderos.nombre', 'LIKE', '%'.$search.'%')->paginate(10); 
             // Swhere('nombre', 'LIKE', '%'.$search.'%')->paginate(3);
 
         // AQUI

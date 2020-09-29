@@ -81,7 +81,7 @@
                         <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                     name="fecha_revalidacion"
                                     id="datepicker2"
-                                    placeholder="Ingresa la fecha Expedicion..."
+                                    placeholder="Ingresa la fecha Revalidación..."
                                     value="{{ old('fecha_revalidacion') }}">
                         </div>
                             @if ($errors->has('fecha_revalidacion'))
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="lead text-secondary mover">Usuario:</label>
+                        <label class="lead text-secondary mover">Integrante:</label>
                         <div class="d-flex justify-content-center align-items-center">
                             <select class="form-control select2 col-md-8" id="select" name="dato_id">
                                 @foreach ($usuarios as $dato)
@@ -198,7 +198,7 @@
                         <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                     name="fecha_nacimiento"
                                     id="datepicker3"
-                                    placeholder="Ingresa la fecha Expedicion..."
+                                    placeholder="Ingresa la fecha nacimiento..."
                                     value="{{ old('fecha_nacimiento') }}">
                         </div>
                             @if ($errors->has('fecha_nacimiento'))

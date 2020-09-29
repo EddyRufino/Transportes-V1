@@ -22,7 +22,7 @@
             </div>
             <br>        
 
-            <div class="container">
+            <div class="container ml-4">
                 <div class="row align-items-start">
                   <div class="col">
                     <div class="form-group">
@@ -93,7 +93,7 @@
 <br>
             <h2 class="mt-4 text-center font-weight-bold lead text-secondary">RESULTADO DE LA INSPECCIÓN TÉCNICA VEHICULAR</h2>
             <br>
-            <div class="container">
+            <div class="container ml-4">
                 <div class="row align-items-start">
                   <div class="col">
                     <div class="form-group">

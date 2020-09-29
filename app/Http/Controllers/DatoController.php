@@ -81,7 +81,7 @@ class DatoController extends Controller
     public function destroy(Dato $dato)
     {
         $dato->delete();
-        return back()->with('status', 'El usuario fue eliminado con éxito!');
+        return back()->with('status', 'El integrante fue eliminado con éxito!');
     }
 
     public function search(Request $request)

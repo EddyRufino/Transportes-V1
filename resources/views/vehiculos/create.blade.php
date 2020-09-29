@@ -12,7 +12,7 @@
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Tarjeta de identificación vehícular
+                    <span class="text-secondary font-weight-bold">Tarjeta de identificación vehícular</span>
                 </button>
               </h5>
             </div>
@@ -123,7 +123,7 @@
                             <input class="form-control col-md-8 bg-light shadow-sm  datepicker"
                                         name="fecha_titulo"
                                         id="datepickerv1"
-                                        placeholder="Ingresa la fecha Expedicion..."
+                                        placeholder="Ingresa la fecha titulo..."
                                         value="{{ old('fecha_titulo') }}">
                             
                                 @if ($errors->has('fecha_titulo'))
@@ -158,7 +158,7 @@
           <div class="card">
             <div class="card-header" id="headingTwo">
               <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn btn-link collapsed text-secondary font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   Datos del vehículo
                 </button>
               </h5>

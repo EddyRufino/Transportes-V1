@@ -4,7 +4,7 @@
 
     <form action="{{ route('vehiculos.update', $vehiculo->id) }}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }} {{ method_field('PUT') }}
-        <h2 class="text-center read text-secondary">Editar Vehículos</h2><br>
+        <h2 class="text-center read text-secondary  mt-4">Editar Vehículo</h2><br>
         <div class="panel-group">
             <div class="panel panel-info">
                 <div class="text-center panel-heading">Editar Tarjeta de identificación vehícular</div>

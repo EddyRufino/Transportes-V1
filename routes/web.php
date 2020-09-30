@@ -39,7 +39,7 @@ Route::get('/buscar', 'IntegranteController@search')->name('integrantes.search')
 
 Route::resource('usuarios', 'UserController');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@contador')->name('home');

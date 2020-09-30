@@ -19,30 +19,31 @@ class IntegranteController extends Controller
 
     public function search(Request $request)
     {
-        // $select = $request->get('select');
+        $select = $request->get('select');
         $search = $request->get('search');
 
         // $searchrr = $request->get('searchrr');
 
-        $integrantes = Dato::Join('Paraderos', 'paraderos.id', '=', 'datos.paradero_id')
-            ->select('datos.nombre', 'datos.dni', 'paraderos.nombre as nombre_paradero')
-            ->where('paraderos.nombre', 'LIKE', '%'.$search.'%')->paginate(10); 
+        // $integrantes = Dato::Join('Paraderos', 'paraderos.id', '=', 'datos.paradero_id')
+        //     ->select('datos.nombre', 'datos.dni', 'paraderos.nombre as nombre_paradero')
+        //     ->where('paraderos.nombre', 'LIKE', '%'.$search.'%')->paginate(10); 
+
             // Swhere('nombre', 'LIKE', '%'.$search.'%')->paginate(3);
 
         // AQUI
-        // $paraderos = Paradero::select('id', 'nombre')->get();
+        $paraderos = Paradero::select('id', 'nombre')->get();
 
-        // $integrantes = Dato::where('paradero_id', '=', $search)
-        //                     ->orWhere('paradero_id', '=', $select)
-        //                     // ->orWhere('nombre', 'LIKE', '%'.$searchrr.'%')
-        //                     ->paginate(3);
+        $integrantes = Dato::where('paradero_id', '=', $search)
+                            ->orWhere('paradero_id', '=', $select)
+                            // ->orWhere('nombre', 'LIKE', '%'.$searchrr.'%')
+                            ->paginate(50);
 
         // $integrantes = Paradero::where('nombre', 'like', '%'. $search.'%')->paginate(3);
 
         $integrantes->appends(['search' => $search]);
         // $paraderos->appends(['select' => $select]);
         
-        return view('integrantes.search', compact('integrantes'));
+        return view('integrantes.index', compact('integrantes', 'paraderos'));
     }
 
     // public function searchrr(Request $request)

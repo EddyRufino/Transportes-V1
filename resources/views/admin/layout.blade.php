@@ -230,5 +230,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     format: 'yyyy-mm-dd'
   });
 
+</script>
+
+<script type="text/javascript">
+
+function desactivaBoton(id) {
+   document.getElementById(id).disabled=true;
+}
 
 </script>

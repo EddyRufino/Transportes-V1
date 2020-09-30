@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <li> {{ $error }} </li>
+                @endforeach
+            @endif
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 
@@ -39,11 +44,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('g-recaptcha') ? ' has-error' : '' }}">
                             <div class="col-md-4"></div>
                             <div class="col-md-6">
-                                <div class="g-recaptcha" data-sitekey="6LfdZ9EZAAAAAC25CMTj1MBApwUjOPecVXQ5C7d_">
+                                <div name="g-recaptcha" class="g-recaptcha" data-sitekey="6LfdZ9EZAAAAAC25CMTj1MBApwUjOPecVXQ5C7d_">
                                 </div>
+
+                                @if ($errors->has('g-recaptcha'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

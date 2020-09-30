@@ -85,7 +85,7 @@
             <br>
             <div class="form-group">
             	<div class="d-flex justify-content-center align-items-center">
-                    <button class="col-md-8 btn btn-primary btn-block">Registrar</button>
+                    <button id="btnOff" onClick="desactivaBoton(this.id)" class="col-md-8 btn btn-primary btn-block">Registrar</button>
                     <div></div>
                 </div>
             </div>
